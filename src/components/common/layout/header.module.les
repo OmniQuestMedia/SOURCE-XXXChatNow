@@ -1,0 +1,13 @@
+
+/* FORCE active menu underline — global override (Ant Menu Horizontal) */
+:global(.ant-menu-horizontal .ant-menu-item-selected) {
+  background: transparent !important;
+}
+
+:global(.ant-menu-horizontal .ant-menu-item-selected)::after {
+  border-bottom: 3px solid @secondary-color !important;
+}
+
+:global(.ant-menu-horizontal .ant-menu-item-selected > a) {
+  position: relative;
+}

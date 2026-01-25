@@ -1,0 +1,26 @@
+@import '../../../style/vars.less';
+
+.performer-profile-list {
+	text-transform: capitalize;
+	color: @regular-text;
+	.light-text {
+		color: @light-text;
+		font-size: 13px;
+	}
+
+	[class~="ant-card"] {
+		color: #666;
+		font-size: 13px;
+
+		[class~="ant-card-head"], [class~="ant-card-body"] {
+			padding: 0 !important;
+			border-bottom: none !important;
+		}
+	}
+
+	.social-media {
+		display: flex;
+		align-items: center;
+		margin-bottom: 15px;
+	}
+}

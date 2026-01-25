@@ -1,0 +1,30 @@
+@import '../../../style/vars.less';
+
+.payout-request-page {
+  background-color: @white-color;
+  height: 100%;
+}
+
+.statistic-payment {
+  text-align: center;
+    :global {
+        .ant-statistic-title {
+          @media screen and (max-width: @mobile-query) {
+            font-size: 12px;
+            line-height: 15px;
+            min-height: 30px;
+          }
+        }
+        .ant-statistic-content {
+          @media screen and (max-width: @mobile-query) {
+            font-size: 18px;
+          }
+        }
+    }
+}
+
+.statistic-last-paid {
+  display: flex;
+  flex-direction: column;
+  color: #000;
+}

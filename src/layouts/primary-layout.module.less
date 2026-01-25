@@ -1,0 +1,44 @@
+@import '../../style/default.less';
+
+.primary-content {
+  padding: 10px;
+
+  .btn-live {
+    width: 100%;
+    height: 45px;
+    font-size: 18px;
+    color: @white-color;
+    background: @primary-color;
+    border-color: @primary-color;
+    &:hover {
+      background: @secondary-color;
+    }
+  }
+
+  .tk-studio {
+    background: @primary-color;
+    padding: 15px;
+    color: @white-color;
+    margin-bottom: 15px;
+
+    .stat {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
+
+.footer {
+  background: @white-color;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  min-height: 72px;
+}
+
+.ant-card-actions {
+  background-color: @white-color  !important;
+  border-top: none !important;
+}

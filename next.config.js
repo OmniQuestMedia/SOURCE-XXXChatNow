@@ -1,0 +1,113 @@
+/** @type {import('next').NextConfig} */
+const withPlugins = require('next-compose-plugins');
+const withLess = require('next-with-less');
+
+const nextConfig = {
+  // react 18 about strict mode https://reactjs.org/blog/2022/03/29/react-v18.html#new-strict-mode-behaviors
+  // enable for testing purpose
+  reactStrictMode: false,
+  distDir: 'dist/.next',
+  eslint: {
+    // Warning: This allows production builds to successfully complete even if
+    // your project has ESLint errors. in development we need to run yarn lint
+    ignoreDuringBuilds: true
+  },
+  poweredByHeader: false,
+  swcMinify: false,
+  // custom config, just need to update next.config file. use in many cases
+  serverRuntimeConfig: {
+    // Will only be available on the server side
+    API_ENDPOINT: process.env.API_SERVER_ENDPOINT || process.env.API_ENDPOINT
+  },
+  publicRuntimeConfig: {
+    API_ENDPOINT: process.env.API_ENDPOINT,
+    SOCKET_ENDPOINT: process.env.SOCKET_ENDPOINT || process.env.API_ENDPOINT,
+    // Will be available on both server and client
+    MAX_VIDEO_BITRATE_KBPS: 900,
+    IMAGE_ACCPET: '.jpeg, .jpg, .png',
+    MAXIMUM_SIZE_UPLOAD_AVATAR: '2',
+    DEBUG: false
+  },
+  async rewrites() {
+    return [
+      {
+        source: '/',
+        destination: '/search/models'
+      },
+      {
+        source: '/vip-models', destination: '/search/models'
+      },
+      {
+        source: '/auth/login',
+        destination: '/auth/login/user'
+      },
+      {
+        source: '/auth/register',
+        destination: '/auth/register/user'
+      },
+      {
+        source: '/auth/login/studio',
+        destination: '/studio/login'
+      },
+
+      {
+        source: '/all-models', destination: '/cams'
+      },
+      {
+        source: '/category/:category',
+        destination: '/search/models'
+      },
+      {
+        source: '/cams-aggregator/category/:category',
+        destination: '/cams'
+      },
+      {
+        source: '/cams-aggregator/category',
+        destination: '/cams'
+      },
+      {
+        source: '/tag/:tag',
+        destination: '/search/models'
+      },
+      {
+        source: '/account/performer/galleries/:id/update',
+        destination: '/account/performer/galleries/update'
+      },
+      {
+        source: '/account/performer/photos/:id/update',
+        destination: '/account/performer/photos/update'
+      },
+      {
+        source: '/account/performer/products/:id/update',
+        destination: '/account/performer/products/update'
+      },
+      {
+        source: '/account/performer/videos/:id/update',
+        destination: '/account/performer/videos/update'
+      },
+      {
+        source: '/live/webrtc/privatechat/:id',
+        destination: '/live/webrtc/privatechat'
+      },
+      {
+        source: '/live/privatechat/:id',
+        destination: '/live/privatechat'
+      },
+      {
+        source: '/community-chat/:id',
+        destination: '/community-chat/:id'
+      }
+    ];
+  }
+};
+
+module.exports = withPlugins([
+  withLess({
+    lessLoaderOptions: {
+      lessOptions: {
+        javascriptEnabled: true
+      }
+    }
+  }),
+  nextConfig
+]);
