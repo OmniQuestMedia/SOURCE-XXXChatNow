@@ -38,11 +38,11 @@ export class RateCardService extends APIRequest {
    * Get rate card for a specific performer with Geo/Demo rules applied
    */
   findByPerformerId(performerId: string, geoDemo?: IGeoDemo) {
-    const params: any = { performerId };
+    const params: Record<string, string> = { performerId };
     if (geoDemo) {
-      params.country = geoDemo.country;
-      params.region = geoDemo.region;
-      params.segment = geoDemo.segment;
+      if (geoDemo.country) params.country = geoDemo.country;
+      if (geoDemo.region) params.region = geoDemo.region;
+      if (geoDemo.segment) params.segment = geoDemo.segment;
     }
     return this.get(this.buildUrl('/rate-card/performer', params));
   }
