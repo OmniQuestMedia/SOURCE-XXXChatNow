@@ -10,6 +10,7 @@ export * from './performer';
 export * from './performer-categories';
 export * from './photo';
 export * from './post';
+export * from './rate-card';
 export * from './redux';
 export * from './refund-request';
 export * from './setting';
