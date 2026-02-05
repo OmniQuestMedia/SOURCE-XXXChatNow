@@ -64,7 +64,8 @@
     "no-shadow": [
       "error",
       {
-        "hoist": "never"
+        "hoist": "never",
+        "allow": ["RateCardItemType"]
       }
     ],
     "no-alert": 0,

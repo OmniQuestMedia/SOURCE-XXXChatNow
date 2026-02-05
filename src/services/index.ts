@@ -15,6 +15,7 @@ export * from './photo.service';
 export * from './post.service';
 export * from './product.service';
 export * from './purchase-item.service';
+export * from './rate-card.service';
 export * from './refund-request.service';
 export * from './setting.service';
 export * from './stream.service';
